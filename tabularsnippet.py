@@ -9,9 +9,9 @@
 # NUTZERVARIABLEN
 
 ignore_lines = 1                        # Überspringt zu Beginn Zeilen
-using_math_mode = True                 # Auf True setzen, wenn Einträge im Mathemodus gesetzt werden sollen
+using_math_mode = True                  # Auf True setzen, wenn Einträge im Mathemodus gesetzt werden sollen
 units = ['', 'ms', 'mV', 'mV', 'mV']    # Einheiten der einzelnen Spalten. Ignoriert, wenn using_math_mode = False (benötigt das Package "units")
-path_data = 'example.txt'                # Speicherort der Daten
+path_data = 'Mappe2.txt'                # Speicherort der Daten
 
 #####################################################
 # NICHT EDITIEREN
@@ -39,7 +39,7 @@ for i in range(rows):
         else:
             T.insert(Tk.END, str(data[i, j]))
         if (j < columns - 1):
-            T.insert(Tk.END, ' & ')
+            T.insert(Tk.END, '\t& ')
     T.insert(Tk.END, ' \\\\ \n')
     
 Tk.mainloop()
