@@ -11,7 +11,7 @@
 ignore_lines = 1                        # Überspringt zu Beginn Zeilen
 using_math_mode = True                  # Auf True setzen, wenn Einträge im Mathemodus gesetzt werden sollen
 units = ['', 'ms', 'mV', 'mV', 'mV']    # Einheiten der einzelnen Spalten. Ignoriert, wenn using_math_mode = False (benötigt das Package "units")
-path_data = 'Mappe2.txt'                # Speicherort der Daten
+path_data = 'example.txt'                # Speicherort der Daten
 
 #####################################################
 # NICHT EDITIEREN
