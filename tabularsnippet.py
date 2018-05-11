@@ -33,11 +33,11 @@ for i in range(rows):
     for j in range(columns):
         if (using_math_mode):
             if(units[j]):
-                T.insert(Tk.END, '$\\unit[' + str(data[i, j]) + ']{' + str(units[j]) + '}$')
+                T.insert(Tk.END, '$\\unit[' + data[i, j] + ']{' + units[j] + '}$')
             else:
-                T.insert(Tk.END, '$' + str(data[i, j]) + '$')
+                T.insert(Tk.END, '$' + data[i, j] + '$')
         else:
-            T.insert(Tk.END, str(data[i, j]))
+            T.insert(Tk.END, data[i, j])
         if (j < columns - 1):
             T.insert(Tk.END, '\t& ')
     T.insert(Tk.END, ' \\\\ \n')
