@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jun 16 21:03:58 2018
+
+@author: DerSc
+"""
+
 # ***************************************************
 # *     TXT zu LaTeX Tabellenkonvertierungstool     *
 # *                2018 John Wigg                   *
@@ -9,8 +16,8 @@
 # NUTZERVARIABLEN
 
 ignore_lines = 1                        # Überspringt zu Beginn Zeilen
-using_math_mode = True                  # Auf True setzen, wenn Einträge im Mathemodus gesetzt werden sollen
-units = ['', 'ms', 'mV', 'mV', 'mV']    # Einheiten der einzelnen Spalten. Ignoriert, wenn using_math_mode = False (benötigt das Package "units")
+using_math_mode = False                  # Auf True setzen, wenn Einträge im Mathemodus gesetzt werden sollen
+units = ['', '\\volt', '\\volt', '\\hertz', '\\second']    # Einheiten der einzelnen Spalten (benötigt das Package "siunitx").
 path_data = 'example.txt'                # Speicherort der Daten
 
 #####################################################
@@ -33,11 +40,14 @@ for i in range(rows):
     for j in range(columns):
         if (using_math_mode):
             if(units[j]):
-                T.insert(Tk.END, '$\\unit[' + data[i, j] + ']{' + units[j] + '}$')
+                T.insert(Tk.END, '$\\SI{' + data[i, j] + '}{' + units[j] + '}$')
             else:
                 T.insert(Tk.END, '$' + data[i, j] + '$')
         else:
-            T.insert(Tk.END, data[i, j])
+            if(units[j]):
+                T.insert(Tk.END, '\\SI{' + data[i, j] + '}{' + units[j] + '}')
+            else:
+                T.insert(Tk.END, data[i, j])
         if (j < columns - 1):
             T.insert(Tk.END, '\t& ')
     T.insert(Tk.END, ' \\\\ \n')
